@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <div class="logo">
+    <div class="img">
+      <img src="./assets/images/logo.svg" alt="" class="dota-logo">
+    </div>
+    <div class="title">
+      <div class="game-name primary">Dota</div>
+      <div class="game-name">Hero Guesser</div>
+    </div>
+  </div>
+  <div class="details-wrapper">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Nick Name</mat-label>
+      <input matInput placeholder="Ie. Juggernaut waliya" [formControl]="nick">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Rounds</mat-label>
+      <input matInput placeholder="10" type="number" [formControl]="gameLength">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="createGame()" [disabled]="nick.invalid">
+      <span *ngIf="!loading;else loadingSpinner">Create Game</span>
+    </button>
+  </div>
+</div>
+<img src="./assets/images/bg.png" alt="" class="bg">
+<ng-template #loadingSpinner>
+  <mat-progress-spinner color="accent" diameter="20" strokeWidth="2" mode="indeterminate"></mat-progress-spinner>
+</ng-template>
