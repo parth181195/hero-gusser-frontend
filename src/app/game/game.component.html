@@ -1,12 +1,20 @@
 <div class="bg-wrapper">
-  <div class="loader">
+  <div class="loader" *ngIf="loading">
     <mat-progress-spinner color="accent" diameter="50" strokeWidth="2" mode="indeterminate"
-                          *ngIf="loading"></mat-progress-spinner>
+                         ></mat-progress-spinner>
   </div>
-  <img src="assets/images/game-bg.jpg" alt="" class="bg">
+  <img src="assets/images/game-bg.jpg"  *ngIf="loading" alt="" class="bg">
 </div>
 <div class="game-ui">
   <div class="image"></div>
-  <div class="guess-wrapper"></div>
+  <div class="guess-wrapper">
+    <div class="title">
+      Guess Hero
+    </div>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Hero Name</mat-label>
+      <input matInput placeholder="Ie. Juggernaut waliya" [formControl]="name">
+    </mat-form-field>
+  </div>
   <div class="winners-wrapper"></div>
 </div>
